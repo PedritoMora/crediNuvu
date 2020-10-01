@@ -1,0 +1,10 @@
+INSERT INTO usuario (id, nombre_completo, login_name, contrasenia) VALUES (null, 'Pedro Mora', 'pedro', '1234'), (null, 'Nuvu Tech', 'nuvu', '1234');
+INSERT INTO cliente (id, nombre, apellido, tipo_identificacion, num_identificacion, fecha_nacimiento, categoria, direccion, celular, correo, estado_activo) VALUES (1, 'Carlos', 'Torres', 'CC', '123456789', '2000-01-01', 'A', '', null, null, true);
+INSERT INTO cliente (id, nombre, apellido, tipo_identificacion, num_identificacion, fecha_nacimiento, categoria, direccion, celular, correo, estado_activo) VALUES (2, 'Maria Consuelo', 'Gordillo', 'CC', '111222333', '1998-01-01', 'C', 'Calle 25', '310111111', 'maconsuelo@hotmail.com', false);
+INSERT INTO cliente (id, nombre, apellido, tipo_identificacion, num_identificacion, fecha_nacimiento, categoria, direccion, celular, correo, estado_activo) VALUES (3, 'Milena', 'Aponte', 'CE', '125-45', '1980-06-17', 'B', 'Transv. 13 No. 23-23 sur', 'no tiene', 'milena.aponte@gmail.com', true);
+INSERT INTO tarjeta_credito ( id, num_tarjeta, id_cliente, fecha_expedicion, saldo_disponible, estado_activo) VALUES (null, '1234-5678-00', 1, '2019-04-05', 1700000, true);
+INSERT INTO tarjeta_credito ( id, num_tarjeta, id_cliente, fecha_expedicion, saldo_disponible, estado_activo) VALUES (null, '1234-5678-01', 2, '2019-04-05', 0, false);
+INSERT INTO tarjeta_credito ( id, num_tarjeta, id_cliente, fecha_expedicion, saldo_disponible, estado_activo) VALUES (null, '1234-5678-00', 1, '2019-11-16', 5000000, true);
+INSERT INTO tarjeta_credito ( id, num_tarjeta, id_cliente, fecha_expedicion, saldo_disponible, estado_activo) VALUES (null, '1234-5678-00', 1, '2020-08-05', 17000000, true);
+INSERT INTO tarjeta_credito ( id, num_tarjeta, id_cliente, fecha_expedicion, saldo_disponible, estado_activo) VALUES (null, '1234-5678-00', 3, '2019-04-05', 10, false);
+INSERT INTO tarjeta_credito ( id, num_tarjeta, id_cliente, fecha_expedicion, saldo_disponible, estado_activo) VALUES (null, '1234-5678-00', 3, '2020-08-20', 4500250, true);
