@@ -5,13 +5,11 @@ import java.util.List;
 import com.morapa.convocatoriaNuvu.model.Usuario;
 
 public interface UsuarioService {
-	
-	Usuario guardarUsuario(Usuario usuario);
-		
+
+	Usuario buscarUsuario(String login, String pass) throws Exception;
+
 	List<Usuario> listarUsuarios();
 	
-	Usuario buscarUsuario(Long idUsuario);
-	
-	Usuario actualizarUsuario(Usuario usuario);
+	Usuario actualizarToken(Usuario usuario);
 	
 }

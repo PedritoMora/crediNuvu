@@ -1,5 +1,6 @@
 package com.morapa.convocatoriaNuvu.service;
 
+import java.util.ArrayList;
 import java.util.List;
 import java.util.Optional;
 
@@ -14,43 +15,35 @@ public class UsuarioServiceImpl implements UsuarioService{
 	
 	@Autowired
 	private UsuarioRepository usuarioRepository;
+	
+	@Override
+	public Usuario buscarUsuario(String login, String pass) throws Exception {
+		List<Usuario> usuarioList = new ArrayList<>();
+		
+		usuarioList = usuarioRepository.findByLoginName(login);
+		
+		if(usuarioList.size() == 0) {
+			throw new Exception("No existe un usuario con el login "+login+".");
+		}
+		
+		return usuarioList.get(0);
+				
+	}
+	
+	@Override
+	public List<Usuario> listarUsuarios(){
+		List<Usuario> usuarios = usuarioRepository.findAll();
+		
+		return  usuarios;
+	}
 
 	@Override
-	public Usuario guardarUsuario(Usuario usuario) {
-		
+	public Usuario actualizarToken(Usuario usuario) {
 		Long id = usuario.getId();
-		if(null != id && usuarioRepository.existsById(id)) {
-			throw new RuntimeException("Ya existe un usuario con el id " + id +".");
+		
+		if(!usuarioRepository.existsById(id)) {
+			throw new RuntimeException("El usuario con id "+ id + " no existe.");
 		}
-		
-		return usuarioRepository.save(usuario);
-	}
-
-	@Override
-	public List<Usuario> listarUsuarios() {
-		
-		return usuarioRepository.findAll();
-	}
-
-	@Override
-	public Usuario buscarUsuario(Long idUsuario) {
-		
-		Optional<Usuario> opUsuarios = usuarioRepository.findById(idUsuario);
-		if(!opUsuarios.isPresent()) {
-			throw new RuntimeException("No existe ningún usuario con el id "+ idUsuario + "."); 
-		}
-		
-		return opUsuarios.get();
-	}
-
-	@Override
-	public Usuario actualizarUsuario(Usuario usuario) {
-		
-		Long idUsuario = usuario.getId();
-		Optional<Usuario> opUsuarios = usuarioRepository.findById(idUsuario);
-		if(!opUsuarios.isPresent()) {
-			throw new RuntimeException("No existe ningún usuario con el id "+ idUsuario + "."); 
-		} 
 		
 		return usuarioRepository.save(usuario);
 	}
